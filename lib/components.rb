@@ -71,6 +71,7 @@ module Babushka
     task
     source
     implicit_source
+    core_source
     source_pool
     parameter
     path_checker

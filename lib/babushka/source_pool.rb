@@ -33,7 +33,7 @@ module Babushka
     end
 
     def core
-      @core ||= Source.new(Path.path / 'deps', 'core')
+      @core ||= CoreSource.new(Path.path / 'deps', 'core')
     end
 
     def current_dir

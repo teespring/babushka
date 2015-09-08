@@ -53,7 +53,8 @@ module Babushka
     end
 
     def uri
-      @uri ||= detect_uri
+      @uri ||= detect_uri || :none
+      @uri unless @uri == :none
     end
 
     def present?
@@ -131,7 +132,7 @@ module Babushka
     def load! should_update = false
       unless @currently_loading
         @currently_loading = true
-        update! if remote? && (!repo? || should_update)
+        update! if (should_update || !repo?) && remote?
         load_deps! unless implicit? # implicit sources can't be loaded.
         @currently_loading = false
       end
@@ -184,7 +185,7 @@ module Babushka
 
     def detect_uri
       if present? && repo?
-        ShellHelpers.shell("git config remote.origin.url", :cd => path)
+        ShellHelpers.shell('git remote -v').lines.collapse(/\(fetch\)/).val_for('origin')
       end
     end
 
