@@ -1,0 +1,3 @@
+steps:
+  - name: 'specs'
+    command: 'script/specs.sh'
