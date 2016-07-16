@@ -2,5 +2,5 @@
 
 set -e
 
-bundle
+bundle --path ./vendor/bundle
 bundle exec rspec
