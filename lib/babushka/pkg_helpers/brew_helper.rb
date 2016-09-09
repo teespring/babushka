@@ -92,15 +92,15 @@ module Babushka
     end
 
     def formulas_path
-      prefix / 'Library/Formula'
+      prefix / 'Homebrew/Library/Taps/homebrew/homebrew-core/Formula'
     end
 
     def taps_path
-      prefix / 'Library/Taps'
+      prefix / 'Homebrew/Library/Taps'
     end
 
     def homebrew_lib_path
-      prefix / 'Library/Homebrew'
+      prefix / 'Homebrew/Library/Homebrew'
     end
   end
   end
